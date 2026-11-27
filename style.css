@@ -1,5 +1,5 @@
 /* Hallmark · shape: app screen · genre: playful · theme: Arcade (deal 1/3)
- * nav: compact game toolbar · signature: dense rainbow bricks becoming a ball rain · states: ready playing paused stageclear gameover won
+ * nav: compact game toolbar · signature: dense rainbow bricks becoming a ball rain · states: ready playing paused gameover won
  * arcade: ember/grille · axes: dark/rounded/chromatic-rainbow · posture: full-palette · v2.0.0 */
 /* Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V4 · weakest: R, removed decorative cabinet framing to keep the playable field dominant. */
 @import url('./tokens.css');
@@ -59,3 +59,23 @@ dialog p { margin-block:var(--space-md) var(--space-lg); color:var(--color-ink-2
 @media(min-width:700px) { .app { padding-block:var(--space-md); } .arena { flex:none; height:min(680px,calc(100dvh - 220px)); } .topbar { padding-block:var(--space-sm); } }
 @media(max-height:600px) { .topbar { padding-block:var(--space-2xs); } .scoreboard { padding-block-end:var(--space-2xs); } .scoreboard strong { font-size:var(--text-xl); } .overlay h2 { font-size:var(--text-xl); } .rain-symbol { display:none; } .overlay p { margin-block:var(--space-xs); } .bottom { padding-block:0; } }
 @media(prefers-reduced-motion:reduce) { *, *::before, *::after { animation:none!important; transition:none!important; } }
+
+/* Original-inspired pixel playfield; retain accessible touch targets. */
+body { background:var(--color-field); }
+.app { max-width:460px; padding-inline:var(--space-xs); }
+.topbar { padding-block:var(--space-2xs); }
+h1 { font-size:var(--text-sm); font-weight:500; }
+.mark, .rain-symbol { display:none; }
+button { background:var(--color-field); border-radius:2px; font-weight:400; }
+.scoreboard { padding-block:0 var(--space-xs); gap:var(--space-sm); }
+.scoreboard>div { flex-direction:row; align-items:baseline; gap:var(--space-xs); }
+.scoreboard strong { font-size:var(--text-sm); font-weight:400; }
+.scoreboard>div:first-child strong { color:var(--color-ink); }
+.arena { border-radius:0; }
+.field-meta { padding:var(--space-xs); }
+.overlay { inset:38% 0 0; background:var(--color-field); padding:var(--space-md); }
+.overlay h2 { font-size:var(--text-lg); font-weight:500; }
+.overlay p { font-size:var(--text-sm); margin-block:var(--space-sm); }
+.primary { min-height:44px; font-size:var(--text-sm); background:var(--color-ink); border-color:var(--color-ink); color:var(--color-field); }
+.overlay .primary { width:auto; }
+@media(min-width:700px) { .app { padding-block:var(--space-xs); } .arena { height:min(760px,calc(100dvh - 154px)); } }

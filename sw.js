@@ -1,4 +1,4 @@
-const CACHE='rainbow-breaker-v1';
+const CACHE='rainbow-breaker-v2-pixels';
 const ASSETS=['./','./index.html','./style.css','./base.css','./tokens.css','./app.js','./physics.js','./storage.js','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('rainbow-breaker-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
